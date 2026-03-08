@@ -1,0 +1,223 @@
+﻿<!doctype html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Сантьяго - Прототип</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Exo+2:wght@400;600;700&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" crossorigin="" />
+  <link rel="stylesheet" href="./styles.css" />
+  <link rel="icon" type="image/svg+xml" href="./assets/santiago-favicon.svg" />
+  <link rel="shortcut icon" href="./assets/santiago-favicon.svg" />
+</head>
+<body>
+  <div class="bg-layer"></div>
+  <main class="app-shell pages-layout">
+    <header class="hero">
+      <p class="eyebrow">ТЕСТОВАЯ ВЕБ-ВЕРСИЯ</p>
+      <h1>Сантьяго</h1>
+      <p class="subtitle">Карта, журнал, прогноз и ассистент</p>
+    </header>
+
+    <nav class="page-nav">
+      <button id="nav-map" class="page-tab active" type="button">Карта</button>
+      <button id="nav-catch" class="page-tab" type="button">Журнал улова</button>
+      <button id="nav-forecast" class="page-tab" type="button">Прогноз погоды</button>
+      <button id="nav-assistant" class="page-tab" type="button">Ассистент</button>
+    </nav>
+
+    <section id="page-map" class="app-page active">
+      <article class="card map-card">
+        <h2>GPS-карта и точки</h2>
+        <p class="hint">Клик по карте ставит GPS-точку. Ниже выбери вид карты в виде окон.</p>
+        <div id="main-map" class="mock-map" aria-label="GPS map"></div>
+
+        <div class="map-style-windows" id="map-style-windows">
+          <button class="map-window" data-style="standard" type="button">
+            <span>Стандарт</span>
+            <div id="preview-standard" class="map-preview"></div>
+          </button>
+          <button class="map-window" data-style="satellite" type="button">
+            <span>Спутник</span>
+            <div id="preview-satellite" class="map-preview"></div>
+          </button>
+          <button class="map-window" data-style="hybrid" type="button">
+            <span>Гибрид</span>
+            <div id="preview-hybrid" class="map-preview"></div>
+          </button>
+        </div>
+
+        <div class="map-actions">
+          <button id="add-current-poi-btn">Добавить мою геопозицию</button>
+          <button id="clear-poi-btn" class="ghost-btn">Очистить точки</button>
+        </div>
+        <p class="hint" id="map-status">Точек: 0</p>
+        <ul id="poi-list" class="poi-list"></ul>
+      </article>
+    </section>
+
+    <section id="page-catch" class="app-page">
+      <article class="card">
+        <h2>Журнал улова</h2>
+        <form id="catch-form" class="form-grid">
+          <input id="species" placeholder="Вид рыбы (например, щука)" required />
+          <textarea id="species-note" placeholder="Описание улова (например: щука, активна у кромки травы)"></textarea>
+
+          <div class="photo-field">
+            <label class="hint">Фото рыбы</label>
+            <div class="photo-actions">
+              <input id="species-photo-file" type="file" accept="image/*" />
+              <button type="button" id="species-open-camera-btn" class="ghost-btn">Камера</button>
+            </div>
+            <div id="species-camera-panel" class="camera-panel is-hidden">
+              <video id="species-camera-video" class="camera-video" autoplay playsinline muted></video>
+              <div class="camera-controls">
+                <button type="button" id="species-capture-btn">Сделать фото</button>
+                <button type="button" id="species-camera-close-btn" class="ghost-btn">Закрыть</button>
+              </div>
+            </div>
+            <img id="species-photo-preview" class="photo-preview is-hidden" alt="Фото рыбы" />
+          </div>
+
+          <input id="weight" placeholder="Вес, кг" type="number" min="0" step="0.01" required />
+          <input id="spot" placeholder="Локация" required />
+          <p class="hint" id="catch-location-status">GPS: ожидание разрешения геолокации...</p>
+
+          <input id="bait" placeholder="Приманка" required />
+          <textarea id="bait-note" placeholder="Описание приманки (например: слишком светлая Duo Realis)" ></textarea>
+
+          <div class="photo-field">
+            <label class="hint">Фото приманки</label>
+            <div class="photo-actions">
+              <input id="bait-photo-file" type="file" accept="image/*" />
+              <button type="button" id="bait-open-camera-btn" class="ghost-btn">Камера</button>
+            </div>
+            <div id="bait-camera-panel" class="camera-panel is-hidden">
+              <video id="bait-camera-video" class="camera-video" autoplay playsinline muted></video>
+              <div class="camera-controls">
+                <button type="button" id="bait-capture-btn">Сделать фото</button>
+                <button type="button" id="bait-camera-close-btn" class="ghost-btn">Закрыть</button>
+              </div>
+            </div>
+            <img id="bait-photo-preview" class="photo-preview is-hidden" alt="Фото приманки" />
+          </div>
+
+          <input id="date" type="date" required />
+          <button type="submit">Добавить запись</button>
+        </form>
+        <div class="stats" id="stats"></div>
+        <ul id="catch-list" class="catch-list"></ul>
+      </article>
+    </section>
+    <section id="page-forecast" class="app-page">
+      <article class="card forecast-card">
+        <h2>Честный прогноз клева</h2>
+
+        <div class="date-forecast-block" id="forecast-overview">
+          <h3>Прогноз на 7 дней</h3>
+          <p class="hint">Нажми на день, чтобы открыть отдельный почасовой экран.</p>
+          <ul class="daily-forecast-list" id="daily-forecast-list"></ul>
+
+          <h3>Календарь и прогноз на дату</h3>
+          <div class="date-forecast-controls">
+            <input id="trip-date" type="date" />
+            <button id="run-date-forecast-btn" type="button">Открыть почасовой прогноз</button>
+          </div>
+          <p class="hint" id="date-forecast-status">Выбери дату и открой почасовой прогноз.</p>
+          <div class="weather-metrics" id="date-weather-metrics"></div>
+          <div class="forecast-score compact" id="date-bite-forecast"></div>
+        </div>
+
+        <div class="hourly-page is-hidden" id="hourly-page">
+          <div class="hourly-page-head">
+            <button id="back-to-week-btn" class="ghost-btn" type="button">← К прогнозу по дням</button>
+            <h3 id="hourly-page-title">Почасовой прогноз (24ч)</h3>
+          </div>
+          <p class="hint" id="hourly-page-status">Выбери день в недельном прогнозе.</p>
+          <ul class="hourly-forecast-list hourly-screen" id="hourly-forecast-list"></ul>
+        </div>
+
+        <div class="forecast-inputs">
+          <input id="owm-api-key" type="password" placeholder="OpenWeather API key" />
+          <input id="city-input" placeholder="Город (например, Batumi)" />
+        </div>
+        <div class="forecast-actions">
+          <button id="forecast-refresh-btn">Обновить погоду</button>
+        </div>
+        <p class="hint" id="forecast-status">Введи ключ и город, затем нажми «Обновить погоду».</p>
+
+        <div class="forecast-score" id="forecast-score-wrap">
+          <div class="score-label">Вероятность клева</div>
+          <div class="score-value" id="forecast-score">--%</div>
+          <div class="score-badge" id="forecast-grade">нет данных</div>
+        </div>
+
+        <div class="weather-metrics" id="weather-metrics"></div>
+        <ul class="reason-list" id="forecast-reasons"></ul>
+        <div class="assistant-warning" id="assistant-warning"></div>
+      </article>
+    </section>
+
+    <section id="page-assistant" class="app-page">
+      <article class="card chat-card">
+        <div class="chat-head">
+          <h2>Ассистент</h2>
+          <label class="toggle-wrap">
+            <input type="checkbox" id="voice-output" checked />
+            <span>Озвучивать ответы</span>
+          </label>
+        </div>
+        <div class="ai-settings">
+          <label class="toggle-wrap">
+            <input type="checkbox" id="ai-enabled" />
+            <span>ИИ-советы в чате</span>
+          </label>
+          <div class="ai-settings-grid">
+            <input id="ai-api-key" type="text" placeholder="AI backend URL (e.g. http://localhost:8787/api/ai)" />
+            <input id="ai-model" placeholder="Модель (например, gpt-4o-mini)" />
+            <button id="ai-save-btn" type="button" class="ghost-btn">Сохранить ИИ</button>
+          </div>
+          <p class="hint" id="ai-status">ИИ выключен. Включи и укажи ключ, чтобы получать советы на базе знаний.</p>
+        </div>
+        <div id="chat-log" class="chat-log" aria-live="polite"></div>
+        <div class="chat-controls">
+          <input id="chat-input" placeholder="Напиши вопрос: как ловить окуня в мае?" />
+          <button id="send-btn">Отправить</button>
+          <button id="mic-btn" class="mic">🎙 Голос</button>
+        </div>
+        <p class="hint" id="voice-hint">Поддерживается в Chrome/Edge. Если микрофон не запустится, используй текстовый ввод.</p>
+      </article>
+    </section>
+  </main>
+
+    <div class="quick-voice" id="quick-voice-wrap">
+    <button id="quick-voice-btn" class="quick-voice-btn" type="button">🎙 Голосовая команда</button>
+  </div>
+
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" crossorigin=""></script>
+  <script src="./app.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
