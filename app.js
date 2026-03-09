@@ -209,11 +209,11 @@ function saveJson(key, value) {
 
 function weatherIconByCode(code) {
   // OpenWeather condition groups
-  if (code >= 200 && code < 600) return "🌧"; // rain/thunder/drizzle
-  if (code === 800) return "☀"; // clear
-  if (code >= 801 && code <= 802) return "⛅"; // partly cloudy
-  if (code >= 803 && code <= 804) return "☁"; // cloudy/overcast
-  return "⛅";
+  if (code >= 200 && code < 600) return "Дождь"; // rain/thunder/drizzle
+  if (code === 800) return "Ясно"; // clear
+  if (code >= 801 && code <= 802) return "Облачно"; // partly cloudy
+  if (code >= 803 && code <= 804) return "Пасмурно"; // cloudy/overcast
+  return "Погода";
 }
 
 function weatherLabelByCode(code) {
@@ -1176,11 +1176,11 @@ async function askOpenAiAdvice(userText) {
 
   const knowledge = buildKnowledgeContext(userText);
   const weatherNote = lastForecast
-    ? `??????? ??????? ??????? ?????: ${lastForecast.finalScore}% (${lastForecast.grade}). ${lastForecast.explanation}`
-    : "??????? ??????? ????? ?? ????????.";
+    ? `Текущая оценка клева ${lastForecast.finalScore}% (${lastForecast.grade}). ${lastForecast.explanation}`
+    : "Текущая оценка клева не рассчитана.";
 
   try {
-    updateAiStatus("?? ???????????? ??????...");
+    updateAiStatus("AI обрабатывает запрос...");
     const response = await fetch(settings.ai.backendUrl, {
       method: "POST",
       headers: {
@@ -1197,20 +1197,20 @@ async function askOpenAiAdvice(userText) {
 
     const data = await response.json();
     if (!response.ok) {
-      updateAiStatus(`?????? ?? backend: ${data?.error || response.status}`);
+      updateAiStatus(`Ошибка AI backend: ${data?.error || response.status}`);
       return null;
     }
 
     const answer = String(data?.answer || "").trim();
     if (!answer) {
-      updateAiStatus("?? backend ?? ?????? ?????.");
+      updateAiStatus("AI backend не вернул ответ.");
       return null;
     }
 
-    updateAiStatus("?? ????????? ????? backend.");
+    updateAiStatus("AI подключен через backend.");
     return answer;
   } catch {
-    updateAiStatus("??? ????? ? ?? backend. ??????? ?????? ? ??????? URL.");
+    updateAiStatus("Нет связи с AI backend. Проверь URL и статус сервиса.");
     return null;
   }
 }
@@ -1456,11 +1456,11 @@ const WAKE_WORD = "сантьяго";
 
 function updateWakeButtons() {
   if (quickVoiceBtn) {
-    quickVoiceBtn.textContent = wakeModeEnabled ? "🛑 Слушаю: Сантьяго" : "🎙 Голосовая команда";
+    quickVoiceBtn.textContent = wakeModeEnabled ? "Слушаю: Сантьяго" : "Голосовая команда";
     quickVoiceBtn.classList.toggle("is-listening", wakeModeEnabled);
   }
   if (micBtn && !recognitionActive) {
-    micBtn.textContent = wakeModeEnabled ? "🛑 Слушаю: Сантьяго" : "🎙 Голос";
+    micBtn.textContent = wakeModeEnabled ? "Слушаю: Сантьяго" : "Голос";
     micBtn.classList.toggle("is-listening", wakeModeEnabled);
   }
 }
@@ -1541,11 +1541,11 @@ if (SpeechRecognition) {
     recognitionActive = true;
     if (micBtn) {
       micBtn.classList.add("is-listening");
-      micBtn.textContent = wakeModeEnabled ? "🛑 Слушаю: Сантьяго" : "Остановить";
+      micBtn.textContent = wakeModeEnabled ? "Слушаю: Сантьяго" : "Остановить";
     }
     if (quickVoiceBtn) {
       quickVoiceBtn.classList.add("is-listening");
-      quickVoiceBtn.textContent = wakeModeEnabled ? "🛑 Слушаю: Сантьяго" : "Ожидаю команду...";
+      quickVoiceBtn.textContent = wakeModeEnabled ? "Слушаю: Сантьяго" : "Ожидаю команду...";
     }
   };
 
@@ -1640,6 +1640,8 @@ window.addEventListener("beforeunload", () => {
 });
 
 init();
+
+
 
 
 
