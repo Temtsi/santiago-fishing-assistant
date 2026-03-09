@@ -30,7 +30,7 @@ function hasText(v) {
 
 function hasMojibake(v) {
   if (typeof v !== "string") return false;
-  return /\?\?\?|Ã|Â|�/.test(v);
+  return /\?\?\?|Ð.|Ñ.|Ã|Â|�/.test(v);
 }
 
 function isSea(item) {
@@ -65,6 +65,13 @@ function validateSpecies(item, idx, errors, warnings) {
   if (item?.type === "fresh" && isSea(item) && !isFresh(item)) warnings.push(`${id} type fresh but habitat looks marine`);
 }
 
+function validateDoc(doc, idx, errors, warnings) {
+  const id = `${idx + 1}:${doc?.id || "<no-id>"}`;
+  if (!hasText(doc?.text)) errors.push(`doc ${id} missing text`);
+  if (hasMojibake(doc?.text)) errors.push(`doc ${id} mojibake text detected`);
+  if (!hasText(doc?.source)) warnings.push(`doc ${id} missing source`);
+}
+
 async function main() {
   const kbPath = path.resolve(process.cwd(), process.argv[2] || "data/knowledge-base.rag.json");
   const kb = await readJson(kbPath);
@@ -85,7 +92,13 @@ async function main() {
     }
   }
 
+  const docs = asArray(kb.documents);
+  for (const [idx, doc] of docs.entries()) {
+    validateDoc(doc, idx, errors, warnings);
+  }
+
   info(`species: ${kb.species.length}`);
+  info(`documents: ${docs.length}`);
   info(`warnings: ${warnings.length}`);
   if (warnings.length) warnings.slice(0, 20).forEach((w) => warn(w));
 

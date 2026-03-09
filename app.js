@@ -1,4 +1,4 @@
-﻿const catchForm = document.getElementById("catch-form");
+const catchForm = document.getElementById("catch-form");
 const catchList = document.getElementById("catch-list");
 const stats = document.getElementById("stats");
 const chatLog = document.getElementById("chat-log");
@@ -1147,10 +1147,37 @@ function speciesToText(item, query) {
   ].join(" ");
 }
 
+function searchDocuments(query, limit = 3) {
+  const docs = Array.isArray(knowledgeBase?.documents) ? knowledgeBase.documents : [];
+  if (!docs.length) return [];
+  const q = normalizeRu(query || "");
+  const words = q.split(/\s+/).filter((w) => w.length >= 4).slice(0, 8);
+  const scored = docs
+    .map((d) => {
+      const text = normalizeRu(d.text || "");
+      const score = words.reduce((acc, w) => acc + (text.includes(w) ? 1 : 0), 0);
+      return { d, score };
+    })
+    .filter((x) => x.score > 0)
+    .sort((a, b) => b.score - a.score)
+    .slice(0, limit)
+    .map((x) => x.d);
+  return scored;
+}
+
 function buildKnowledgeContext(query) {
   const hits = searchKnowledge(query);
-  if (!hits.length) return "База знаний пока пуста.";
-  return hits.map((h, i) => `${i + 1}. ${speciesToText(h, query)}`).join("\n");
+  const docs = searchDocuments(query);
+
+  if (!hits.length && !docs.length) return "База знаний пока пуста.";
+
+  const speciesPart = hits.map((h, i) => `${i + 1}. ${speciesToText(h, query)}`);
+  const docsPart = docs.map((d, i) => `${i + 1}. [${d.topic || "book"}] ${(d.text || "").slice(0, 420)}`);
+
+  return [
+    speciesPart.length ? `Виды рыб:\n${speciesPart.join("\n")}` : "",
+    docsPart.length ? `Книжные заметки:\n${docsPart.join("\n")}` : "",
+  ].filter(Boolean).join("\n\n");
 }
 
 function knowledgeSpeciesCount() {

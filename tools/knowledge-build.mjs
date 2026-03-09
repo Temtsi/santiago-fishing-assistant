@@ -7,6 +7,7 @@ const cwd = process.cwd();
 const rawPath = path.resolve(cwd, "data/fishbase-raw-cache.json");
 const kbPath = path.resolve(cwd, "data/knowledge-base.rag.json");
 const targetsPath = path.resolve(cwd, "data/fishbase-targets.json");
+const sabaneevPath = path.resolve(cwd, "data/book-kb/sabaneev-kb.json");
 
 function runNode(args) {
   return new Promise((resolve) => {
@@ -75,6 +76,19 @@ function buildLocalFallbackKb(targetsConfig) {
   };
 }
 
+function normalizeDocs(bookKb) {
+  const entries = asArray(bookKb?.entries);
+  return entries
+    .map((e, idx) => ({
+      id: e?.id || `doc-${idx + 1}`,
+      source: e?.source || "book",
+      topic: e?.topic || "general",
+      species: asArray(e?.species),
+      text: typeof e?.text === "string" ? e.text.trim() : "",
+    }))
+    .filter((d) => d.text.length > 20);
+}
+
 async function main() {
   const backupRaw = `${rawPath}.bak`;
   const backupKb = `${kbPath}.bak`;
@@ -98,6 +112,8 @@ async function main() {
   }
 
   let kb = await readJsonSafe(kbPath);
+  const sabaneev = await readJsonSafe(sabaneevPath);
+
   if (!kb || !Array.isArray(kb.species) || kb.species.length === 0) {
     const targetsCfg = await readJsonSafe(targetsPath);
     const localFallbackKb = buildLocalFallbackKb(targetsCfg || {});
@@ -106,10 +122,20 @@ async function main() {
     console.warn(`[knowledge-build] Built local fallback KB with ${kb.species.length} species from targets.`);
   }
 
+  const docs = normalizeDocs(sabaneev);
+  kb.documents = docs;
+  kb.documentsMeta = {
+    source: "sabaneev",
+    count: docs.length,
+    updatedAt: new Date().toISOString(),
+  };
+
+  await fs.writeFile(kbPath, `${JSON.stringify(kb, null, 2)}\n`, "utf8");
+
   const validateCode = await runNode(["tools/validate-knowledge.mjs"]);
   if (validateCode !== 0) process.exit(validateCode);
 
-  console.log("[knowledge-build] completed");
+  console.log(`[knowledge-build] completed (species=${asArray(kb.species).length}, docs=${asArray(kb.documents).length})`);
 }
 
 main().catch((err) => {
