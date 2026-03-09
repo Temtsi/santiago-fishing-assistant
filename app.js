@@ -1248,9 +1248,9 @@ async function buildAssistantReply(input) {
   const aiAnswer = await askOpenAiAdvice(input);
   if (aiAnswer) return aiAnswer;
 
-  if (!settings.ai.enabled || !settings.ai.backendUrl) {
-    return buildKnowledgeOnlyReply(input);
-  }
+  // If AI is disabled or backend is unavailable, always answer from local knowledge.
+  const kbReply = buildKnowledgeOnlyReply(input);
+  if (kbReply) return kbReply;
 
   return makeAssistantAnswer(input);
 }
