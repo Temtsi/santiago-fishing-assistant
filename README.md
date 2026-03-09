@@ -40,6 +40,7 @@ npm start
   - `data/fishbase-raw-cache.json`
   - `data/knowledge-base.rag.json`
 - `npm run knowledge:validate` - validate built KB (required fields, duplicates, mojibake check)
-- `npm run knowledge:build` - run sync + validate in one command
+- `npm run knowledge:build` - run sync with automatic fallback to previous cache + validate
 
 Targets are configured in `data/fishbase-targets.json`.
+

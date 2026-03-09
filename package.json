@@ -7,7 +7,7 @@
     "start": "node server.js",
     "fishbase:sync": "node tools/fishbase-sync.mjs",
     "knowledge:validate": "node tools/validate-knowledge.mjs",
-    "knowledge:build": "node tools/fishbase-sync.mjs && node tools/validate-knowledge.mjs",
+    "knowledge:build": "node tools/knowledge-build.mjs",
     "fishbase:nightly": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/run-fishbase-nightly.ps1"
   }
 }

@@ -8,7 +8,599 @@
     "Чолоки",
     "Чорох"
   ],
-  "source": "fishbase-sync",
-  "generatedAt": "2026-03-09T20:23:12.080Z",
-  "species": []
+  "source": "local-fallback",
+  "generatedAt": "2026-03-09T20:27:32.852Z",
+  "species": [
+    {
+      "name": "Ставрида",
+      "aliases": [
+        "ставрида",
+        "horse mackerel",
+        "black sea horse mackerel",
+        "Ставрида",
+        "Trachurus mediterraneus"
+      ],
+      "type": "sea",
+      "locations": [
+        "Кобулети",
+        "Батуми",
+        "пирс",
+        "берег",
+        "лодка"
+      ],
+      "season": {
+        "startMonth": 4,
+        "endMonth": 10,
+        "peak": [
+          6,
+          7,
+          8
+        ]
+      },
+      "methods": [
+        "самодур",
+        "микроджиг",
+        "пилькер"
+      ],
+      "gear": [
+        "спиннинг 2-10 г",
+        "шнур 0.3-0.6 PE",
+        "флюр 0.16-0.20"
+      ],
+      "baits": [
+        "узкие блестящие приманки",
+        "светонакопительные ночью"
+      ],
+      "fishbase": {
+        "scientificName": "Trachurus mediterraneus",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.851Z"
+      }
+    },
+    {
+      "name": "Сибас",
+      "aliases": [
+        "сибас",
+        "лаврак",
+        "sea bass",
+        "european seabass",
+        "Сибас",
+        "Dicentrarchus labrax"
+      ],
+      "type": "sea",
+      "locations": [
+        "Кобулети",
+        "Батуми",
+        "каменистый берег",
+        "пирс"
+      ],
+      "season": {
+        "startMonth": 5,
+        "endMonth": 11,
+        "peak": [
+          9,
+          10
+        ]
+      },
+      "methods": [
+        "воблер минноу",
+        "пилькер",
+        "джиг"
+      ],
+      "gear": [
+        "спиннинг 7-28 г",
+        "шнур 0.8-1.2 PE",
+        "флюр 0.22-0.30"
+      ],
+      "baits": [
+        "воблер 90-120 мм",
+        "силикон 3-4 дюйма",
+        "пилькер 15-30 г"
+      ],
+      "fishbase": {
+        "scientificName": "Dicentrarchus labrax",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    },
+    {
+      "name": "Камбала",
+      "aliases": [
+        "камбала",
+        "flounder",
+        "european flounder",
+        "Камбала",
+        "Platichthys flesus"
+      ],
+      "type": "sea",
+      "locations": [
+        "Кобулети",
+        "Батуми",
+        "песчаное дно",
+        "лодка",
+        "берег"
+      ],
+      "season": {
+        "startMonth": 10,
+        "endMonth": 3,
+        "peak": [
+          11,
+          12,
+          1,
+          2
+        ]
+      },
+      "methods": [
+        "донка",
+        "медленная придонная проводка"
+      ],
+      "gear": [
+        "донное удилище",
+        "груз 30-80 г",
+        "поводок 0.22-0.28"
+      ],
+      "baits": [
+        "креветка",
+        "червь",
+        "полоски рыбы"
+      ],
+      "fishbase": {
+        "scientificName": "Platichthys flesus",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    },
+    {
+      "name": "Щука",
+      "aliases": [
+        "щука",
+        "pike",
+        "northern pike",
+        "Щука",
+        "Esox lucius"
+      ],
+      "type": "fresh",
+      "locations": [
+        "река",
+        "озеро",
+        "граница травы",
+        "мелководье"
+      ],
+      "season": {
+        "startMonth": 3,
+        "endMonth": 11,
+        "peak": [
+          4,
+          5,
+          9,
+          10
+        ]
+      },
+      "methods": [
+        "джерк",
+        "воблер",
+        "силикон"
+      ],
+      "gear": [
+        "спиннинг 10-35 г",
+        "поводок струна/титан"
+      ],
+      "baits": [
+        "воблер 90-130 мм",
+        "силикон 4-6 дюймов",
+        "колебалка"
+      ],
+      "fishbase": {
+        "scientificName": "Esox lucius",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    },
+    {
+      "name": "Окунь",
+      "aliases": [
+        "окунь",
+        "perch",
+        "european perch",
+        "Окунь",
+        "Perca fluviatilis"
+      ],
+      "type": "fresh",
+      "locations": [
+        "бровка",
+        "камни",
+        "прибрежная зона",
+        "Чолоки"
+      ],
+      "season": {
+        "startMonth": 4,
+        "endMonth": 11,
+        "peak": [
+          5,
+          6,
+          9
+        ]
+      },
+      "methods": [
+        "микроджиг",
+        "воблер",
+        "вертушка"
+      ],
+      "gear": [
+        "ультралайт 1-7 г",
+        "шнур 0.2-0.4 PE"
+      ],
+      "baits": [
+        "силикон 1.5-2.5 дюйма",
+        "воблер 45-65 мм",
+        "вертушка №0-2"
+      ],
+      "fishbase": {
+        "scientificName": "Perca fluviatilis",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    },
+    {
+      "name": "Судак",
+      "aliases": [
+        "судак",
+        "zander",
+        "pikeperch",
+        "Судак",
+        "Sander lucioperca"
+      ],
+      "type": "fresh",
+      "locations": [
+        "русловой свал",
+        "твердое дно",
+        "глубина",
+        "Чорох"
+      ],
+      "season": {
+        "startMonth": 5,
+        "endMonth": 11,
+        "peak": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "methods": [
+        "джиг",
+        "отводной"
+      ],
+      "gear": [
+        "спиннинг 10-35 г",
+        "шнур 0.6-1.0 PE",
+        "флюр 0.25-0.30"
+      ],
+      "baits": [
+        "силикон 3-5 дюймов",
+        "поролон",
+        "виброхвост"
+      ],
+      "fishbase": {
+        "scientificName": "Sander lucioperca",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    },
+    {
+      "name": "Карп",
+      "aliases": [
+        "карп",
+        "carp",
+        "common carp",
+        "Карп",
+        "Cyprinus carpio"
+      ],
+      "type": "fresh",
+      "locations": [
+        "пруд",
+        "озеро",
+        "тихая река"
+      ],
+      "season": {
+        "startMonth": 5,
+        "endMonth": 10,
+        "peak": [
+          6,
+          7,
+          8,
+          9
+        ]
+      },
+      "methods": [
+        "фидер",
+        "карпфишинг"
+      ],
+      "gear": [
+        "карповик",
+        "фидер",
+        "монтаж волос"
+      ],
+      "baits": [
+        "бойлы",
+        "кукуруза",
+        "пеллетс"
+      ],
+      "fishbase": {
+        "scientificName": "Cyprinus carpio",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    },
+    {
+      "name": "Кефаль",
+      "aliases": [
+        "кефаль",
+        "лобан",
+        "mullet",
+        "flathead grey mullet",
+        "Кефаль",
+        "Mugil cephalus"
+      ],
+      "type": "sea",
+      "locations": [
+        "Кобулети",
+        "Батуми",
+        "устье",
+        "берег"
+      ],
+      "season": {
+        "startMonth": 5,
+        "endMonth": 11,
+        "peak": [
+          8,
+          9,
+          10
+        ]
+      },
+      "methods": [
+        "поплавок",
+        "фидер",
+        "легкий спиннинг"
+      ],
+      "gear": [
+        "легкая снасть",
+        "тонкий поводок 0.14-0.18"
+      ],
+      "baits": [
+        "хлеб",
+        "креветка",
+        "мелкий силикон"
+      ],
+      "fishbase": {
+        "scientificName": "Mugil cephalus",
+        "depth": {
+          "shallowM": null,
+          "deepM": null
+        },
+        "habitat": {
+          "fresh": null,
+          "brackish": null,
+          "salt": null,
+          "demersPelag": null
+        },
+        "trophic": {
+          "troph": null,
+          "foodTroph": null,
+          "foodSeTroph": null
+        },
+        "dynamics": {
+          "resilience": null,
+          "doublingTime": null,
+          "vulnerability": null,
+          "climate": null
+        },
+        "spawning": {
+          "seasonality": null,
+          "months": null
+        }
+      },
+      "source": {
+        "provider": "Local targets fallback",
+        "specCode": null,
+        "syncedAt": "2026-03-09T20:27:32.852Z"
+      }
+    }
+  ]
 }
