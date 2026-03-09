@@ -33,3 +33,13 @@ npm start
 - `OPENAI_API_KEY`
 - `PORT` (опционально)
 - `OPENAI_MODEL` (опционально)
+
+## Knowledge Pipeline
+
+- `npm run fishbase:sync` - fetch FishBase data and build:
+  - `data/fishbase-raw-cache.json`
+  - `data/knowledge-base.rag.json`
+- `npm run knowledge:validate` - validate built KB (required fields, duplicates, mojibake check)
+- `npm run knowledge:build` - run sync + validate in one command
+
+Targets are configured in `data/fishbase-targets.json`.

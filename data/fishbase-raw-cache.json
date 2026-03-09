@@ -1,0 +1,357 @@
+{
+  "generatedAt": "2026-03-09T20:23:12.080Z",
+  "source": "FishBase / rOpenSci API",
+  "results": [
+    {
+      "target": {
+        "name": "Ставрида",
+        "genus": "Trachurus",
+        "species": "mediterraneus",
+        "type": "sea",
+        "locations": [
+          "Кобулети",
+          "Батуми",
+          "пирс",
+          "берег",
+          "лодка"
+        ],
+        "aliases": [
+          "ставрида",
+          "horse mackerel",
+          "black sea horse mackerel"
+        ],
+        "season": {
+          "startMonth": 4,
+          "endMonth": 10,
+          "peak": [
+            6,
+            7,
+            8
+          ]
+        },
+        "methods": [
+          "самодур",
+          "микроджиг",
+          "пилькер"
+        ],
+        "gear": [
+          "спиннинг 2-10 г",
+          "шнур 0.3-0.6 PE",
+          "флюр 0.16-0.20"
+        ],
+        "baits": [
+          "узкие блестящие приманки",
+          "светонакопительные ночью"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Сибас",
+        "genus": "Dicentrarchus",
+        "species": "labrax",
+        "type": "sea",
+        "locations": [
+          "Кобулети",
+          "Батуми",
+          "каменистый берег",
+          "пирс"
+        ],
+        "aliases": [
+          "сибас",
+          "лаврак",
+          "sea bass",
+          "european seabass"
+        ],
+        "season": {
+          "startMonth": 5,
+          "endMonth": 11,
+          "peak": [
+            9,
+            10
+          ]
+        },
+        "methods": [
+          "воблер минноу",
+          "пилькер",
+          "джиг"
+        ],
+        "gear": [
+          "спиннинг 7-28 г",
+          "шнур 0.8-1.2 PE",
+          "флюр 0.22-0.30"
+        ],
+        "baits": [
+          "воблер 90-120 мм",
+          "силикон 3-4 дюйма",
+          "пилькер 15-30 г"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Камбала",
+        "genus": "Platichthys",
+        "species": "flesus",
+        "type": "sea",
+        "locations": [
+          "Кобулети",
+          "Батуми",
+          "песчаное дно",
+          "лодка",
+          "берег"
+        ],
+        "aliases": [
+          "камбала",
+          "flounder",
+          "european flounder"
+        ],
+        "season": {
+          "startMonth": 10,
+          "endMonth": 3,
+          "peak": [
+            11,
+            12,
+            1,
+            2
+          ]
+        },
+        "methods": [
+          "донка",
+          "медленная придонная проводка"
+        ],
+        "gear": [
+          "донное удилище",
+          "груз 30-80 г",
+          "поводок 0.22-0.28"
+        ],
+        "baits": [
+          "креветка",
+          "червь",
+          "полоски рыбы"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Щука",
+        "genus": "Esox",
+        "species": "lucius",
+        "type": "fresh",
+        "locations": [
+          "река",
+          "озеро",
+          "граница травы",
+          "мелководье"
+        ],
+        "aliases": [
+          "щука",
+          "pike",
+          "northern pike"
+        ],
+        "season": {
+          "startMonth": 3,
+          "endMonth": 11,
+          "peak": [
+            4,
+            5,
+            9,
+            10
+          ]
+        },
+        "methods": [
+          "джерк",
+          "воблер",
+          "силикон"
+        ],
+        "gear": [
+          "спиннинг 10-35 г",
+          "поводок струна/титан"
+        ],
+        "baits": [
+          "воблер 90-130 мм",
+          "силикон 4-6 дюймов",
+          "колебалка"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Окунь",
+        "genus": "Perca",
+        "species": "fluviatilis",
+        "type": "fresh",
+        "locations": [
+          "бровка",
+          "камни",
+          "прибрежная зона",
+          "Чолоки"
+        ],
+        "aliases": [
+          "окунь",
+          "perch",
+          "european perch"
+        ],
+        "season": {
+          "startMonth": 4,
+          "endMonth": 11,
+          "peak": [
+            5,
+            6,
+            9
+          ]
+        },
+        "methods": [
+          "микроджиг",
+          "воблер",
+          "вертушка"
+        ],
+        "gear": [
+          "ультралайт 1-7 г",
+          "шнур 0.2-0.4 PE"
+        ],
+        "baits": [
+          "силикон 1.5-2.5 дюйма",
+          "воблер 45-65 мм",
+          "вертушка №0-2"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Судак",
+        "genus": "Sander",
+        "species": "lucioperca",
+        "type": "fresh",
+        "locations": [
+          "русловой свал",
+          "твердое дно",
+          "глубина",
+          "Чорох"
+        ],
+        "aliases": [
+          "судак",
+          "zander",
+          "pikeperch"
+        ],
+        "season": {
+          "startMonth": 5,
+          "endMonth": 11,
+          "peak": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "methods": [
+          "джиг",
+          "отводной"
+        ],
+        "gear": [
+          "спиннинг 10-35 г",
+          "шнур 0.6-1.0 PE",
+          "флюр 0.25-0.30"
+        ],
+        "baits": [
+          "силикон 3-5 дюймов",
+          "поролон",
+          "виброхвост"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Карп",
+        "genus": "Cyprinus",
+        "species": "carpio",
+        "type": "fresh",
+        "locations": [
+          "пруд",
+          "озеро",
+          "тихая река"
+        ],
+        "aliases": [
+          "карп",
+          "carp",
+          "common carp"
+        ],
+        "season": {
+          "startMonth": 5,
+          "endMonth": 10,
+          "peak": [
+            6,
+            7,
+            8,
+            9
+          ]
+        },
+        "methods": [
+          "фидер",
+          "карпфишинг"
+        ],
+        "gear": [
+          "карповик",
+          "фидер",
+          "монтаж волос"
+        ],
+        "baits": [
+          "бойлы",
+          "кукуруза",
+          "пеллетс"
+        ]
+      },
+      "error": "fetch failed"
+    },
+    {
+      "target": {
+        "name": "Кефаль",
+        "genus": "Mugil",
+        "species": "cephalus",
+        "type": "sea",
+        "locations": [
+          "Кобулети",
+          "Батуми",
+          "устье",
+          "берег"
+        ],
+        "aliases": [
+          "кефаль",
+          "лобан",
+          "mullet",
+          "flathead grey mullet"
+        ],
+        "season": {
+          "startMonth": 5,
+          "endMonth": 11,
+          "peak": [
+            8,
+            9,
+            10
+          ]
+        },
+        "methods": [
+          "поплавок",
+          "фидер",
+          "легкий спиннинг"
+        ],
+        "gear": [
+          "легкая снасть",
+          "тонкий поводок 0.14-0.18"
+        ],
+        "baits": [
+          "хлеб",
+          "креветка",
+          "мелкий силикон"
+        ]
+      },
+      "error": "fetch failed"
+    }
+  ]
+}

@@ -4,6 +4,10 @@
   "private": true,
   "type": "commonjs",
   "scripts": {
-    "start": "node server.js"
+    "start": "node server.js",
+    "fishbase:sync": "node tools/fishbase-sync.mjs",
+    "knowledge:validate": "node tools/validate-knowledge.mjs",
+    "knowledge:build": "node tools/fishbase-sync.mjs && node tools/validate-knowledge.mjs",
+    "fishbase:nightly": "powershell -NoProfile -ExecutionPolicy Bypass -File tools/run-fishbase-nightly.ps1"
   }
 }
